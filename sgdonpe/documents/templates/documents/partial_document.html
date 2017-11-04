@@ -1,0 +1,30 @@
+
+
+<li document-id="{{ document.pk }}" csrf="{{ csrf_token }}">
+  <div class="document-container">
+    <div class="post">
+      {#{% if feed.user == user %}#}
+      {#  <span class="glyphicon glyphicon-remove remove-feed" title="{% trans 'Click to remove this feed' %}"></span>#}
+      {#{% endif %}#}
+
+
+      <div class="interaction">
+
+        <p>  Comentario
+          (<span class="document_created">{{ document.create_date }}</span>)
+        </p>
+      </div>
+      <div class="comments">
+        <form role="form" method="post" action="/historiers/addHistory/{{ document.pk }}/" >
+          {% csrf_token %}
+          <input type="hidden" name="documento" value="{{ document.pk }}">
+          <input type="comentario" class="form-control input-sm" placeholder="'Write a comment...' " name="post" maxlength="255">
+          <input type="submit" value="Submit" />
+        </form>
+        <ol class="clearfix">
+          {% comment %} Place holder to load feed comments {% endcomment %}
+        </ol>
+      </div>
+    </div>
+  </div>
+</li>

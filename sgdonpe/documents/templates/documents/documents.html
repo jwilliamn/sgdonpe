@@ -1,0 +1,12 @@
+<ul class="stream">
+  {% for document in documents %}
+    {% include 'documents/partial_document.html' with document=document %}
+    <h1>{{ document.title }}</h1>
+  {% endfor %}
+</ul>
+
+<form action="/documents/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit" />
+</form>
