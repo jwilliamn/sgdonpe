@@ -8,6 +8,7 @@ class InternalUser(models.Model):
     nombres = models.CharField(max_length=64)
     apellidos = models.CharField(max_length=64)
     codigoUsuario = models.CharField(max_length=8)
+    codDependencia = models.CharField(max_length=8,default='ING')
     dependencia = models.CharField(max_length=256)
     @staticmethod
     def findInternalUser(targetUser):

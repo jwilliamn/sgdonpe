@@ -31,6 +31,16 @@ class Anexo(models.Model):
     idFile = models.ForeignKey(DocumentFile, on_delete=models.CASCADE)
     nextanexoID = models.ForeignKey('self', on_delete=models.CASCADE, null=True)
 
+class DocumentViewer(models.Model):
+    user = models.ForeignKey(User)
+    document = models.ForeignKey('Document')
+
+
+class DocReferences(models.Model):
+    docParentReferencing = models.ForeignKey('Document',
+                                             related_name='el_nuevo_documento', null = True)
+    docChildReferenced = models.ForeignKey('Document', related_name='el_antiguo_documento',null=True)
+
 
 class Document(models.Model):
 
@@ -69,16 +79,26 @@ class Document(models.Model):
                             owner_user=authenticatedUser,
                             docOficialID=documentoOficial)
         document.save()
+        docViewer = DocumentViewer(user = authenticatedUser, document = document)
+        docViewer.save()
+
     @staticmethod
     def get_documents(from_document=None):
         if from_document is not None:
-            documents = Document.objects.filter(parent=None, id__lte=from_document)
+            lista_pk = [dv.document.pk for dv in DocumentViewer.objects.filter(user=from_document)]
+            print('para: ',from_document,lista_pk)
+            documents = Document.objects.filter(pk__in = lista_pk)
         else:
             documents = Document.objects.all()
         return documents
 
+    def addDocReference(self, docReferencing):
+        linkReferencing = DocReferences(docParentReferencing=self,docChildReferenced=docReferencing)
+        linkReferencing.save()
 
-
+    def getAllReferences(self):
+        allReferences = DocReferences.objects.filter(docParentReferencing=self)
+        return [ref.docChildReferenced for ref in allReferences]
 
     def get_resumen(self):
         if len(self.content) > 255:

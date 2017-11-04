@@ -16,4 +16,5 @@ urlpatterns = [
     #url(r'^addHistory/(?P<idDocument>\d+)/$', historier_views.addHistory, name='historyAdded'),
     #url(r'^updatePrincipalState/(?P<idDocument>\d+)/$', historier_views.agregarActividad, name='historyAdded'),
     url(r'^sendFile/(?P<idDocument>\d+)/$', views.sendFile, name='sendFile'),
+    url(r'^addReference/(?P<idDocument>\d+)/$', views.addReference, name='addReference'),
 ]

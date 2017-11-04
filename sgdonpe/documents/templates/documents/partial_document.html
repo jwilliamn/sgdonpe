@@ -18,7 +18,7 @@
         <form role="form" method="post" action="/historiers/addHistory/{{ document.pk }}/" >
           {% csrf_token %}
           <input type="hidden" name="documento" value="{{ document.pk }}">
-          <input type="comentario" class="form-control input-sm" placeholder="'Write a comment...' " name="post" maxlength="255">
+          <input type="comentario" class="form-control input-sm" placeholder="'Write a comment...' " name="comentario" maxlength="255">
           <input type="submit" value="Submit" />
         </form>
         <ol class="clearfix">
@@ -30,6 +30,20 @@
           {% csrf_token %}
           <input type="hidden" name="documento" value="{{ document.pk }}">
           {{ comboBox }}
+          <input type="submit" value="Submit" />
+        </form>
+        <ol class="clearfix">
+          {% comment %} Place holder to load feed comments {% endcomment %}
+        </ol>
+      </div>
+      <div class="sendAction">
+        {{ listaReferencias }}
+      </div>
+      <div class="addReferenceAction">
+        <form role="form" method="post" action="/activities/addReference/{{ document.pk }}/" >
+          {% csrf_token %}
+          <input type="hidden" name="documento" value="{{ document.pk }}">
+          {{ comboFiles }}
           <input type="submit" value="Submit" />
         </form>
         <ol class="clearfix">

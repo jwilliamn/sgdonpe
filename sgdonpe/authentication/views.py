@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import redirect, render
 
 from sgdonpe.authentication.forms import SignUpForm
-
+from sgdonpe.authentication.models import InternalUser
 
 def signup(request):
     if request.method == 'POST':
@@ -20,6 +20,10 @@ def signup(request):
                                      email=email)
             user = authenticate(username=username, password=password)
             login(request, user)
+
+            for us in User.objects.all():
+                ius = InternalUser.findInternalUser(us)
+            
             return redirect('/')
 
     else:

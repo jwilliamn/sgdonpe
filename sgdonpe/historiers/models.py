@@ -6,25 +6,30 @@ import json
 from django.http import JsonResponse
 
 class PrincipalStates(models.Model):
-    Desconocido = 'DE'
-    Recibido = 'RE'
-    Leido = 'LE'
-    Visado = 'VI'
-    Firmado = 'FI'
-    Enviado = 'EN'
+    ENPROYECTO = 'ENPROYEC'
+    PARADESPACHO = 'PARADESP'
+    EMITIDO = 'EMITIDO'
+    RECIBIDO = 'RECIB'
+    RECIBIDOPARCIAL = 'RECIBPAR'
+    ATENDIDO = 'ATEND'
+    ATENDIDOPARCIAL = 'ATENDPAR'
+    ARCHIVADO = 'ARCH'
 
     PossibleStates = (
-        (Desconocido, 'Desconocido'),
-        (Recibido, 'Recibido'),
-        (Leido, 'Leido'),
-        (Visado, 'Visado'),
-        (Firmado, 'Firmado'),
-        (Enviado, 'Enviado')
+        (ENPROYECTO, 'En Proyecto'),
+        (PARADESPACHO, 'Para Despacho'),
+        (EMITIDO, 'Emitido'),
+        (RECIBIDO, 'Recibido'),
+        (RECIBIDOPARCIAL, 'Recibido Parcial'),
+        (ATENDIDO, 'Atendido'),
+        (ATENDIDOPARCIAL, 'Atendido Parcial'),
+        (ARCHIVADO, 'Archivado')
     )
+
     estado = models.CharField(
         max_length=2,
         choices=PossibleStates,
-        default=Desconocido,
+        default=EMITIDO,
     )
     @staticmethod
     def getLastState(document):
