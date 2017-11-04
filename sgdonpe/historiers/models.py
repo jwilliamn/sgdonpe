@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from sgdonpe.documents.models import Document
+from sgdonpe.authentication.models import ExternalUser
+
 # Create your models here.
 import json
 from django.http import JsonResponse
@@ -37,7 +39,7 @@ class PrincipalStates(models.Model):
         if len(allStepHistories) > 0:
             return max(allStepHistories, key=lambda item: item.whenTime).currentPrincipalStateID
         else:
-            allStatesWhereDE = PrincipalStates.objects.filter(estado=PrincipalStates.Desconocido)
+            allStatesWhereDE = PrincipalStates.objects.filter(estado=PrincipalStates.ENPROYECTO)
             if(len(allStatesWhereDE)>0):
                 return allStatesWhereDE[0]
             print('no hay ningun estado con Desconocido???')
@@ -52,7 +54,7 @@ class PrincipalStates(models.Model):
 class StepHistory(models.Model):
     document = models.ForeignKey(Document)
     currentPrincipalStateID = models.ForeignKey(PrincipalStates)
-    externUserID = models.IntegerField(null=True)
+    externUserID = models.ForeignKey(ExternalUser,null=True)
     user = models.ForeignKey(User)
     whenTime = models.DateTimeField(auto_now=True)
     previousStepHistory = models.ForeignKey('self', null=True)
@@ -65,7 +67,7 @@ class StepHistory(models.Model):
         for indx in range(len(allHistory)):
             dic = {}
             dic['FechaHora'] = allHistory[indx].whenTime
-            dic['UsuarioExterno'] = allHistory[indx].externUserID
+            dic['UsuarioExterno'] = str(allHistory[indx].externUserID)
             dic['Comentario'] = allHistory[indx].comentario
             dic['estado'] = str(allHistory[indx].currentPrincipalStateID)
             dic['Usuario'] = allHistory[indx].user.username

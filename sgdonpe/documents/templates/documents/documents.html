@@ -1,5 +1,5 @@
 <ul class="stream">
-  {% for document, listaReferencias in documents %}
+  {% for document, listaReferencias, listaTags in documents %}
     {% include 'documents/partial_document.html' with document=document %}
     <h1>{{ document.title }}</h1>
   {% endfor %}

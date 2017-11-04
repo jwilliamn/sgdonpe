@@ -30,5 +30,6 @@ urlpatterns = [
     url(r'^historiers/', include('sgdonpe.historiers.urls')),
     url(r'^remitos/', include('sgdonpe.remitos.urls')),
     url(r'^activities/', include('sgdonpe.activities.urls')),
+    url(r'^mesadepartes/', include('sgdonpe.mesadepartes.urls')),
 ]
 

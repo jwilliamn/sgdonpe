@@ -5,7 +5,8 @@ from sgdonpe.remitos.models import Remito
 # Create your views here.
 from django.contrib.auth.decorators import login_required
 from sgdonpe.documents.models import DocumentViewer,Document
-import datetime
+from sgdonpe.historiers.models import StepHistory
+from sgdonpe.activities import UtilFunctions
 @login_required
 def sendFile(request,idDocument):
     if request.user.is_authenticated():
@@ -23,30 +24,15 @@ def sendFile(request,idDocument):
 
                         # we should add targetUser as a viewer
                         document = allPossibleDocuments[0]
-                        docViewer = DocumentViewer(user=targetUser,document=document)
-                        docViewer.save()
+                        principalState = StepHistory.getLastState(document)
+                        UtilFunctions.handleEnvioDocumento(originUser=originUser,
+                                                           targetUser=targetUser,
+                                                           principalState=principalState,
+                                                           document=document)
 
-                        internalUserTarget = InternalUser.findInternalUser(targetUser)
-                        internalUserOrigin = InternalUser.findInternalUser(originUser)
 
-                        remito = Remito(tipo='ADMI',
-                                        codigo=str(document.pk),
-                                        estado='EMITIDO',
-                                        codigoDependenciaRemitente=internalUserOrigin.codDependencia,
-                                        dependenciaRemitente=internalUserOrigin.dependencia,
-                                        codigoEncargadoRemitente=internalUserOrigin.codigoUsuario,
-                                        encargadoRemitente = str(internalUserOrigin),
-                                        ruc= '11415069511',
-                                        personaJuridica = 'personaJuridica',
-                                        dni='415069510',
-                                        ciudadano = 'ciudadano',
-                                        codigoTipoDoc= 'abc',
-                                        descripcionTipoDoc=document.title,
-                                        numeroDoc=str(document.pk),
-                                        fecha = datetime.datetime.now(),
-                                        asunto =document.title)
-                        remito.save()
-                        print('remito saved:')
+
+
     return documentHistory(None,idDocument)
 
 @login_required

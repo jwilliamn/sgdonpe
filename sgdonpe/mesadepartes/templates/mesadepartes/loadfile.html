@@ -1,0 +1,15 @@
+{% block head %}
+
+{% endblock head %}
+
+{% block body %}
+
+  <div class="loadFile">
+    <h2>LoadFile</h2>
+    <form action="/mesadepartes/fileLoaded/" method="post" role="form">
+      {% csrf_token %}
+        {{ form }}
+      <button type="submit" class="btn btn-primary btn-lg">Cargar y enviar documento</button>
+    </form>
+  </div>
+{% endblock body %}

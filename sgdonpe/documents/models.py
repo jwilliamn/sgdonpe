@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from sgdonpe.authentication.models import InternalUser
 # Create your models here.
 
 
@@ -42,6 +43,18 @@ class DocReferences(models.Model):
     docChildReferenced = models.ForeignKey('Document', related_name='el_antiguo_documento',null=True)
 
 
+class TagModel(models.Model):
+    txtTag = models.CharField(max_length=24)
+
+    def __str__(self):
+        return self.txtTag
+
+
+class DocTags(models.Model):
+    document = models.ForeignKey('Document')
+    tag = models.ForeignKey(TagModel)
+
+
 class Document(models.Model):
 
     title = models.CharField(max_length=255, null=False, unique=True)
@@ -67,20 +80,7 @@ class Document(models.Model):
         articles = Document.objects.filter(status=Document.ENVIADO)
         return articles
 
-    @staticmethod
-    def handle_uploaded_file(titleFile, fileItself, authenticatedUser):
-        print('loading file:',titleFile)
-        docFile = DocumentFile(file=fileItself, fileName=titleFile)
-        docFile.save()
-        documentoOficial = DocumentoOficial(fileID=docFile)
-        documentoOficial.save()
-        document = Document(title=titleFile,
-                            content='AsuntoUnico',
-                            owner_user=authenticatedUser,
-                            docOficialID=documentoOficial)
-        document.save()
-        docViewer = DocumentViewer(user = authenticatedUser, document = document)
-        docViewer.save()
+
 
     @staticmethod
     def get_documents(from_document=None):
@@ -92,6 +92,9 @@ class Document(models.Model):
             documents = Document.objects.all()
         return documents
 
+
+
+
     def addDocReference(self, docReferencing):
         linkReferencing = DocReferences(docParentReferencing=self,docChildReferenced=docReferencing)
         linkReferencing.save()
@@ -99,6 +102,10 @@ class Document(models.Model):
     def getAllReferences(self):
         allReferences = DocReferences.objects.filter(docParentReferencing=self)
         return [ref.docChildReferenced for ref in allReferences]
+
+    def getAllTags(self):
+        allDocTags = DocTags.objects.filter(document=self)
+        return [docTag.tag for docTag in allDocTags]
 
     def get_resumen(self):
         if len(self.content) > 255:

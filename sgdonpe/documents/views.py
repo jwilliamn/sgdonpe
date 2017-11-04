@@ -14,7 +14,8 @@ def documents(request):
         print('isNotPost')
     all_documents = Document.get_documents(request.user)
     listReferences = [doc.getAllReferences() for doc in all_documents]
-    all_documents = zip(all_documents,listReferences)
+    listTags = [doc.getAllTags() for doc in all_documents]
+    all_documents = zip(all_documents,listReferences,listTags)
     form = UploadFileForm()
     formActivity = SelectActivityForm()
     selectUser = SelectInternalUserForm()

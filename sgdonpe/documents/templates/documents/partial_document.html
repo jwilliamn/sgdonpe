@@ -36,8 +36,11 @@
           {% comment %} Place holder to load feed comments {% endcomment %}
         </ol>
       </div>
-      <div class="sendAction">
+      <div class="listaReferencias">
         {{ listaReferencias }}
+      </div>
+      <div class="listaTags">
+        {{ listaTags }}
       </div>
       <div class="addReferenceAction">
         <form role="form" method="post" action="/activities/addReference/{{ document.pk }}/" >
