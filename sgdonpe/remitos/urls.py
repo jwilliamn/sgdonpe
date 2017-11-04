@@ -12,7 +12,10 @@ urlpatterns = [
     #url(r'^update/$', views.update, name='update'),
     #url(r'^track_comments/$', views.track_comments, name='track_comments'),
     #url(r'^remove/$', views.remove, name='remove_feed'),
-    url(r'^(?P<idRemito>\d+)/$', views.getJsonResponse, name='getJsonResponse'),
+    #url(r'^(?P<idRemito>\d+)/$', views.getJsonResponse, name='getJsonResponse'),
+    url(r'^remitos/(?P<idRemito>\d+)/$', views.getJsonResponse, name='getJsonResponse'),
+    url(r'^destinos/(?P<idDestino>\d+)/$', views.getJsonResponseDestino, name='getJsonResponseDestino'),
+    url(r'^referencias/(?P<idReferencia>\d+)/$', views.getJsonResponseRef, name='getJsonResponseRef'),
     #url(r'^addHistory/(?P<idDocument>\d+)/$', historier_views.addHistory, name='historyAdded'),
     #url(r'^updatePrincipalState/(?P<idDocument>\d+)/$', historier_views.agregarActividad, name='historyAdded'),
 ]
