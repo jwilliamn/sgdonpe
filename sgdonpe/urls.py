@@ -28,5 +28,7 @@ urlpatterns = [
     url(r'^signup/$', bootcamp_auth_views.signup, name='signup'),
     url(r'^documents/', include('sgdonpe.documents.urls')),
     url(r'^historiers/', include('sgdonpe.historiers.urls')),
+    url(r'^remitos/', include('sgdonpe.remitos.urls')),
+    url(r'^activities/', include('sgdonpe.activities.urls')),
 ]
 

@@ -25,6 +25,31 @@
           {% comment %} Place holder to load feed comments {% endcomment %}
         </ol>
       </div>
+      <div class="releaseAction">
+        <form role="form" method="post" action="/historiers/updatePrincipalState/{{ document.pk }}/" >
+          {% csrf_token %}
+          <input type="hidden" name="documento" value="{{ document.pk }}">
+          {{ comboBox }}
+          <input type="submit" value="Submit" />
+        </form>
+        <ol class="clearfix">
+          {% comment %} Place holder to load feed comments {% endcomment %}
+        </ol>
+      </div>
+      <div class="sendAction">
+        <form role="form" method="post" action="/activities/sendFile/{{ document.pk }}/" >
+          {% csrf_token %}
+          <input type="hidden" name="documento" value="{{ document.pk }}">
+          {{ comboUser }}
+          <input type="submit" value="Submit" />
+        </form>
+        <ol class="clearfix">
+          {% comment %} Place holder to load feed comments {% endcomment %}
+        </ol>
+      </div>
+      <div class="ultimoEstado">
+        {{ document.estado }}
+      </div>
     </div>
   </div>
 </li>

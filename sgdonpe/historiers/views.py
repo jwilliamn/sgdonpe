@@ -2,7 +2,7 @@ from django.shortcuts import render
 import json
 from sgdonpe.historiers.models import StepHistory
 from django.contrib.auth.decorators import login_required
-from sgdonpe.documents.models import  Document
+from sgdonpe.documents.models import Document
 from sgdonpe.historiers.models import PrincipalStates
 # Create your views here.
 
@@ -23,7 +23,7 @@ def addHistory(request,idDocument):
             pstate = PrincipalStates(estado=pstate_cod)
             pstate.save()
         else:
-            pstate = StepHistory.get_last_principalState(idDocument)
+            pstate = StepHistory.getLastState(idDocument)
         if pstate is None:
             pstate = PrincipalStates()
             pstate.save()
@@ -37,12 +37,44 @@ def addHistory(request,idDocument):
             document = qsDocument[0]
             stepHistory = StepHistory(document=document,currentPrincipalStateID=pstate, user=request.user,comentario=comentario)
             stepHistory.save()
+            document.estado = pstate.estado
+            document.save()
 
     else:
         print('isNotPost')
 
     return documentHistory(None, idDocument)
 
+@login_required
+def agregarActividad(request,idDocument):
+    if request.user.is_authenticated():
+        print('it is authenticated')
+        if request.method == 'POST':
+            print('isPost: agregarActividad: ',idDocument)
+            print(request.POST)
+            if 'actions' in request.POST:
+                pstate_query = PrincipalStates.objects.filter(pk=request.POST['actions'])
+
+                if(len(pstate_query) == 1):
+                    pstate = pstate_query[0]
+                    print(pstate)
+                    qsDocument = Document.objects.filter(pk=idDocument)
+                    if len(qsDocument) == 1:
+                        document = qsDocument[0]
+                        stepHistory = StepHistory(document=document,
+                                                  currentPrincipalStateID=pstate,
+                                                  user=request.user)
+                        stepHistory.save()
+                        document.estado = pstate.estado
+                        document.save()
+                        print('satate change saved')
+
+        else:
+            print('is not Post: agregarActividad')
+    else:
+        print('not authenticated')
+
+    return documentHistory(None, idDocument)
 
 #document = models.ForeignKey(Document)
    # currentPrincipalStateID = models.ForeignKey(PrincipalStates)

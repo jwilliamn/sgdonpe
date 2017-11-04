@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-
 # Create your models here.
 
 
@@ -34,25 +33,15 @@ class Anexo(models.Model):
 
 
 class Document(models.Model):
-    REDACTADO = 'R'
-    VISADO = 'V'
-    FIRMADO = 'F'
-    ENVIADO = 'E'
-    STATUS = (
-        (VISADO, 'Visado'),
-        (FIRMADO, 'Firmado'),
-        (ENVIADO, 'Enviado'),
-        (REDACTADO,'Redactado'),
-    )
 
     title = models.CharField(max_length=255, null=False, unique=True)
     content = models.TextField(max_length=4000)
-    status = models.CharField(max_length=1, choices=STATUS, default=REDACTADO)
     owner_user = models.ForeignKey(User)
     create_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
     docOficialID = models.ForeignKey(DocumentoOficial)
     firstAnexoID = models.ForeignKey(Anexo, null=True)
+    estado = models.CharField(max_length=16, null=False, default='NA')
 
     class Meta:
         verbose_name = ("Documento")
@@ -89,6 +78,8 @@ class Document(models.Model):
         return documents
 
 
+
+
     def get_resumen(self):
         if len(self.content) > 255:
             return '{0}...'.format(self.content[:255])
@@ -101,4 +92,6 @@ class Document(models.Model):
     def get_comments(self):
         return DocumentComment.objects.filter(article=self)
 
+    def get_current_state(self):
+        return self.status
 

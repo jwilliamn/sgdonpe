@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'sgdonpe.documents',
     'sgdonpe.historiers',
     'sgdonpe.authentication',
+    'sgdonpe.remitos',
 ]
 
 MIDDLEWARE = [
