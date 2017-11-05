@@ -7,6 +7,8 @@ body{
   background: #f3f3f3;
   border-radius: 5px;
   padding: 2em;
+  margin-left: 0.7em;
+  margin-right: 0.7em;
 }
 
 footer{
@@ -15,4 +17,36 @@ footer{
 
 .row{
   margin-bottom: 0px;
+}
+
+#f1_i1{
+  height: 3em;
+  width: 7em;
+  border: 0px;
+  border-radius: 5px;
+  margin: 5px;
+  background-color: #00b79e;
+  color: white;
+  outline: 0px;
+}
+
+#f1_i2{
+
+  width: 100%;
+  border: 0px;
+  border-radius: 5px;
+  margin: 5px;
+  height: 3em;
+  padding: 5px 15px 5px 15px;
+}
+
+.f2_boton{
+  height: 3em;
+  width: 3em;
+  border: 0px;
+  border-radius: 5px;
+  margin: 5px;
+  background-color: #00b79e;
+  color: white;
+  outline: 0px;
 }

@@ -1,35 +1,85 @@
-{% load staticfiles %}
 
-<li document-id="{{ document.pk }}" csrf="{{ csrf_token }}">
-
+{% load static %}
+<div document-id="{{ document.pk }}" csrf="{{ csrf_token }}"></div>
 
   <div class="document-container">
 
-
     <div class="item row">
-
-      <h2> {{document.title }}</h2>
+      <h5> {{document.title }} ::  {{ document.estado }}</h5>
       <div class="col s12">
+
+        <!-- Fila 1 -->
         <form role="form" method="post" action="/historiers/addHistory/{{ document.pk }}/" >
           {% csrf_token %}
           <input type="hidden" name="documento" value="{{ document.pk }}">
-          <input type="textarea" class="form-control input-sm" placeholder="'Write a comment...' " name="comentario" maxlength="255">
-          <input type="submit" value="Submit"/>
+          <div class="row">
+            <div class="input-field col s2">
+              <input class="waves-effect" id="f1_i1" value="Enviar" type="submit" >
+            </div>
+            <div class="input-field col s10">
+              <input id="f1_i2" class="form-control input-sm" placeholder="Ingresa un comentario..." name="comentario" maxlength="255" type="textarea">
+            </div>
+          </div>
         </form>
+
+        <!-- Fila 2 -->
+        <div class="row">
+              <input name="csrfmiddlewaretoken" value="7CclELjsDB9VkIne9pamtv0sM8cFOWOAyT0vGeunjbEtQE3JUJ81FSmRJ3WBSxrs" type="hidden">
+              <input name="documento" value="9" type="hidden">
+              <div class="col s12">
+                <div class="row">
+                  <div class="input-field col s4">
+
+                    <div class="row">
+
+                      <form role="form" method="post" action="/historiers/updatePrincipalState/{{ document.pk }}/" >
+                        {% csrf_token %}
+                        <div class="input-field col s8">
+                          <input type="hidden" name="documento" value="{{ document.pk }}">
+                              {{ comboBox }}
+                          </div>
+                        <div class="input-field col s4">
+                          <input class="f2_boton" value="√" type="submit">
+                        </div>
+
+                      </form>
+                    </div>
+                  </div>
+
+                  <div class="input-field col s4">
+                    <div class="row">
+                       <form role="form" method="post" action="/activities/addReference/{{ document.pk }}/" >
+                          {% csrf_token %}
+                        <div class="input-field col s8">
+                          <input type="hidden" name="documento" value="{{ document.pk }}">
+                              {{ comboFiles }}
+                        </div>
+                        <div class="input-field col s4">
+                          <input class="f2_boton" value="√" type="submit">
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="input-field col s4">
+                    <div class="row">
+                      <form role="form" method="post" action="/activities/sendFile/{{ document.pk }}/" >
+                          {% csrf_token %}
+                        <div class="input-field col s8">
+                          <input type="hidden" name="documento" value="{{ document.pk }}">
+                            {{ comboUser }}
+                        </div>
+                        <div class="input-field col s4">
+                          <input class="f2_boton" value="√" type="submit">
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
       </div>
 
-
-      <div class="releaseAction">
-        <form role="form" method="post" action="/historiers/updatePrincipalState/{{ document.pk }}/" >
-          {% csrf_token %}
-          <input type="hidden" name="documento" value="{{ document.pk }}">
-          {{ comboBox }}
-          <input type="submit" value="Submit" />
-        </form>
-        <ol class="clearfix">
-          {% comment %} Place holder to load feed comments {% endcomment %}
-        </ol>
-      </div>
       <div class="listaReferencias">
          {% for ref in listaReferencias %}
         <div class="chip"> {{ ref }} </div>
@@ -41,33 +91,7 @@
         <div class="chip"> {{ tag }} </div>
         {% endfor %}
 
-
-      </div>
-      <div class="addReferenceAction">
-        <form role="form" method="post" action="/activities/addReference/{{ document.pk }}/" >
-          {% csrf_token %}
-          <input type="hidden" name="documento" value="{{ document.pk }}">
-          {{ comboFiles }}
-          <input type="submit" value="Submit" />
-        </form>
-        <ol class="clearfix">
-          {% comment %} Place holder to load feed comments {% endcomment %}
-        </ol>
-      </div>
-      <div class="sendAction">
-        <form role="form" method="post" action="/activities/sendFile/{{ document.pk }}/" >
-          {% csrf_token %}
-          <input type="hidden" name="documento" value="{{ document.pk }}">
-          {{ comboUser }}
-          <input type="submit" value="Submit" />
-        </form>
-        <ol class="clearfix">
-          {% comment %} Place holder to load feed comments {% endcomment %}
-        </ol>
-      </div>
-      <div class="ultimoEstado">
-        {{ document.estado }}
       </div>
     </div>
   </div>
-</li>
+</div>

@@ -130,3 +130,7 @@ LOGIN_REDIRECT_URL = '/documents/'
 ALLOWED_SIGNUP_DOMAINS = ['*']
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,'sgdonpe', "static"),
+]
