@@ -1,30 +1,27 @@
 {% load staticfiles %}
 
 <li document-id="{{ document.pk }}" csrf="{{ csrf_token }}">
+
+
   <div class="document-container">
-    <div class="post">
-      {#{% if feed.user == user %}#}
-      {#  <span class="glyphicon glyphicon-remove remove-feed" title="{% trans 'Click to remove this feed' %}"></span>#}
-      {#{% endif %}#}
 
 
-      <div class="interaction">
+    <div class="item row">
 
-        <p>  Comentario
-          (<span class="document_created">{{ document.create_date }}</span>)
-        </p>
-      </div>
+      <h2> {{document.title }}</h2>
       <div class="comments">
         <form role="form" method="post" action="/historiers/addHistory/{{ document.pk }}/" >
           {% csrf_token %}
           <input type="hidden" name="documento" value="{{ document.pk }}">
-          <input type="comentario" class="form-control input-sm" placeholder="'Write a comment...' " name="comentario" maxlength="255">
+          <input type="textarea" class="form-control input-sm" placeholder="'Write a comment...' " name="comentario" maxlength="255">
           <input type="submit" value="Submit" />
         </form>
         <ol class="clearfix">
           {% comment %} Place holder to load feed comments {% endcomment %}
         </ol>
       </div>
+
+
       <div class="releaseAction">
         <form role="form" method="post" action="/historiers/updatePrincipalState/{{ document.pk }}/" >
           {% csrf_token %}
@@ -37,10 +34,17 @@
         </ol>
       </div>
       <div class="listaReferencias">
-        {{ listaReferencias }}
+         {% for ref in listaReferencias %}
+        <div class="chip"> {{ ref }} </div>
+        {% endfor %}
       </div>
       <div class="listaTags">
-        {{ listaTags }}
+
+        {% for tag in listaTags %}
+        <div class="chip"> {{ tag }} </div>
+        {% endfor %}
+
+
       </div>
       <div class="addReferenceAction">
         <form role="form" method="post" action="/activities/addReference/{{ document.pk }}/" >
