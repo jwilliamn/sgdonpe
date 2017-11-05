@@ -7,6 +7,7 @@ from sgdonpe.documents.models import Document
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from sgdonpe.authentication.models import InternalUser
+import json
 from rest_framework import routers, serializers, viewsets
 # Create your views here.
 @csrf_exempt
@@ -29,6 +30,10 @@ def getUsersRegistered(request):
         f = {}
         f['youCantPostMe'] = True
         return JsonResponse(f)
+def getUsersAsJSON():
+    allUsers = InternalUser.objects.all()
+    internalUsers = {iu.pk: str(iu) for iu in allUsers}
+    return json.dumps(internalUsers)
 
 def presentarCiudadano(request):
     form = UploadFileMesaDePartes()

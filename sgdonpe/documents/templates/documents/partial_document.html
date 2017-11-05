@@ -66,7 +66,14 @@
                           {% csrf_token %}
                         <div class="input-field col s8">
                           <input type="hidden" name="documento" value="{{ document.pk }}">
-                            {{ comboUser }}
+
+                          <select name="users" required="" id="id_users"  class="initialized">
+                            {% for id, nombre in idUserNombreUser %}
+                              <option value="{{ id }}" >{{nombre}}</option>
+                            {% endfor %}
+                            </select>
+
+
                         </div>
                         <div class="input-field col s4">
                           <input class="f2_boton" value="√" type="submit">
