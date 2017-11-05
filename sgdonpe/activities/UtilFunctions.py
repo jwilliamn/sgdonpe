@@ -97,9 +97,15 @@ def handleEnvioDocumento(originUser,targetUser,principalState,document,withRemit
     docViewer = DocumentViewer(user=targetUser, document=document)
     docViewer.save()
 
+    stepHistory = StepHistory(document=document,
+                              currentPrincipalStateID=principalState,
+                              user=originUser,
+                              comentario=str(originUser) + ' envio a ' + str(targetUser))
+    stepHistory.save()
+
     if withRemito:
         remito = Remito(tipo='ADMI',
-                        codigo=str(document.pk),
+                        codigo=str(stepHistory.pk),
                         estado=str(principalState),
                         codigoDependenciaRemitente=internalUserOrigin.codDependencia,
                         dependenciaRemitente=internalUserOrigin.dependencia,
@@ -117,9 +123,5 @@ def handleEnvioDocumento(originUser,targetUser,principalState,document,withRemit
         remito.save()
         print('remito saved:')
 
-    stepHistory = StepHistory(document=document,
-                              currentPrincipalStateID=principalState,
-                              user=originUser,
-                              comentario=str(originUser) + ' envio a ' + str(targetUser))
-    stepHistory.save()
+
     print('envio registered')

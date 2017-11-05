@@ -9,16 +9,13 @@
     <div class="item row">
 
       <h2> {{document.title }}</h2>
-      <div class="comments">
+      <div class="col s12">
         <form role="form" method="post" action="/historiers/addHistory/{{ document.pk }}/" >
           {% csrf_token %}
           <input type="hidden" name="documento" value="{{ document.pk }}">
           <input type="textarea" class="form-control input-sm" placeholder="'Write a comment...' " name="comentario" maxlength="255">
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Submit"/>
         </form>
-        <ol class="clearfix">
-          {% comment %} Place holder to load feed comments {% endcomment %}
-        </ol>
       </div>
 
 

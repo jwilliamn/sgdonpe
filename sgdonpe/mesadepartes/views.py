@@ -5,7 +5,11 @@ from sgdonpe.authentication.models import InternalUser,ExternalUser
 from sgdonpe.historiers.models import StepHistory
 from sgdonpe.documents.models import Document
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+
+from rest_framework import routers, serializers, viewsets
 # Create your views here.
+@csrf_exempt
 def presentar(request):
     if request.method == "POST":
         print('mesa de partes presentar isPost')
@@ -14,6 +18,7 @@ def presentar(request):
         print('mesa de partes presentar isPGET')
         return presentarCiudadano(request)
 #metodo GET
+
 def presentarCiudadano(request):
     form = UploadFileMesaDePartes()
     return render(request, 'mesadepartes/loadfile.html',
@@ -58,8 +63,8 @@ def presentarPorSGD(request):
                                                                    dni=dict['dni'],
                                                                    codigoUsuario=dict['codigoUsuario'],
                                                                    codDependencia=dict['codDependencia'],
-                                                                   dependencia=dict['dependencia'],
-                                                                   urlUser=dict['urlUser'])
+                                                                   dependencia=dict['depend'],
+                                                                   urlUser=dict['sgdUrl'])
                         f = {}
                         f['docPK'] = docPk
                         return JsonResponse(f)
@@ -91,3 +96,10 @@ def handleLoadFile(request):
     else:
         print('handleLoadFile isPGET')
         return presentarCiudadano(request)
+
+#class UserViewSet(viewsets.ModelViewSet):
+   # """
+    #API endpoint that allows users to be viewed or edited.
+   # """
+    #queryset = User.objects.all().order_by('-date_joined')
+    #serializer_class = UserSerializer
