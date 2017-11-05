@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8686b741-bfdc-4dcd-a0c6-0b4960747edd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scriptInitlizice.py" afterPath="$PROJECT_DIR$/scriptInitlizice.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sgdonpe/settings.py" afterPath="$PROJECT_DIR$/sgdonpe/settings.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,7 +17,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sgdonpe/historiers/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
@@ -84,11 +84,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sgdonpe/settings.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="486">
-              <caret line="27" column="32" lean-forward="false" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="32" />
+              <caret line="27" column="79" lean-forward="false" selection-start-line="27" selection-start-column="79" selection-end-line="27" selection-end-column="79" />
               <folding />
             </state>
           </provider>
@@ -174,7 +174,6 @@
         <option value="$PROJECT_DIR$/sgdonpe/activities/views.py" />
         <option value="$PROJECT_DIR$/sgdonpe/documents/models.py" />
         <option value="$PROJECT_DIR$/sgdonpe/mesadepartes/views.py" />
-        <option value="$PROJECT_DIR$/sgdonpe/settings.py" />
         <option value="$PROJECT_DIR$/sgdonpe/urls.py" />
         <option value="$PROJECT_DIR$/sgdonpe/core/views.py" />
         <option value="$PROJECT_DIR$/sgdonpe/core/templates/core/cover.html" />
@@ -182,6 +181,7 @@
         <option value="$PROJECT_DIR$/sgdonpe/mesadepartes/templates/mesadepartes/loadfile.html" />
         <option value="$PROJECT_DIR$/sgdonpe/historiers/models.py" />
         <option value="$PROJECT_DIR$/sgdonpe/activities/UtilFunctions.py" />
+        <option value="$PROJECT_DIR$/sgdonpe/settings.py" />
       </list>
     </option>
   </component>
@@ -1073,14 +1073,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sgdonpe/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="27" column="32" lean-forward="false" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sgdonpe/historiers/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -1089,6 +1081,14 @@
             <element signature="e#0#28#0" expanded="true" />
             <element signature="e#382#1724#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sgdonpe/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="27" column="79" lean-forward="false" selection-start-line="27" selection-start-column="79" selection-end-line="27" selection-end-column="79" />
+          <folding />
         </state>
       </provider>
     </entry>
