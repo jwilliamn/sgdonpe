@@ -50,3 +50,31 @@ footer{
   color: white;
   outline: 0px;
 }
+
+#upload{
+  margin-top: 10px;
+  background: #f3f3f3;
+  border-radius: 5px;
+  padding: 2em;
+  margin-left: 0.7em;
+  margin-right: 0.7em;
+}
+
+#titulo_uploadFile{
+margin: 3em;
+}
+
+#cargar_archivo{
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+#upload_principal{
+  margin-bottom: 3em;
+  margin-top: 3em;
+}
+
+#login{
+  margin-bottom: 3em;
+  margin-top: 3em;
+}

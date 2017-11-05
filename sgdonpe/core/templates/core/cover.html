@@ -1,15 +1,33 @@
-{% extends 'base.html' %}
-{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+
+{% load static %}
 {% load i18n %}
 
 {% block head %}
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="icon" href="{% static 'images/favicon.ico' %}">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>Login - ZeroPapel</title>
   <link href="{% static 'css/cover.css' %}" rel="stylesheet">
 {% endblock head %}
 
 {% block body %}
+<nav class="indigo darken-2">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center">ZeroPapel</a>
+    </div>
+  </nav>
 
-  <div class="cover">
-    <h1 class="logo">Bootcamp</h1>
+   <div class="container" id="login" style="width: 34em; margin-bottom: 8.8em; margin-top: 8.8em;">
+      <div class="row " id="upload">
+        <div class="col s12">
+
     {% if form.non_field_errors %}
       {% for error in form.non_field_errors %}
         <div class="alert alert-danger alert-dismissable">
@@ -36,11 +54,30 @@
             <label class="control-label">{{ error }}</label>
           {% endfor %}
         </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-default">{% trans 'Log in' %}</button>
-          <a href="{% url 'signup' %}" class="btn btn-link">{% trans 'Sign up for Bootcamp' %}</a>
+        <div class="row">
+        <div class="col s12 form-group">
+          <button type="submit" class="btn btn-default">Iniciar sesión</button>
+          <a href="{% url 'signup' %}" class="btn btn-link">Registrarse</a>
         </div>
+          </div>
       </form>
+      </div>
+      </div>
     </div>
   </div>
 {% endblock body %}
+
+
+
+  <footer class="page-footer indigo darken-2">
+      <div class="footer-copyright">
+        <div class="container">
+        © 2017 ZeroPapel
+        </div>
+      </div>
+  </footer>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

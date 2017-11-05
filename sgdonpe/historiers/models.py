@@ -3,10 +3,11 @@ from django.contrib.auth.models import User
 from sgdonpe.documents.models import Document
 from sgdonpe.authentication.models import ExternalUser
 
+import http.client, urllib
 # Create your models here.
 import json
 from django.http import JsonResponse
-
+from sgdonpe.mesadepartes.models import RegisteredInstitutions
 class PrincipalStates(models.Model):
     ENPROYECTO = 'ENPROYEC'
     PARADESPACHO = 'PARADESP'
@@ -50,6 +51,14 @@ class PrincipalStates(models.Model):
 
      #   return str(self.estado)
 
+class ExternStepHistory(models.Model):
+    stepHistory = models.ForeignKey('StepHistory',null=True)
+    urlDestino = models.CharField(max_length=256)
+    codigoDocumentoExterno = models.IntegerField()
+
+def unirDiccionarios(A,B):
+    return {**A, **B}
+
 
 class StepHistory(models.Model):
     document = models.ForeignKey(Document)
@@ -73,9 +82,42 @@ class StepHistory(models.Model):
             dic['Usuario'] = allHistory[indx].user.username
             dic['Email'] = allHistory[indx].user.email
 
-            toReturn['Log' + str(indx)] = dic
+            toReturn['Log' + str(indx)+str(RegisteredInstitutions.getThisURL())] = dic
+
+        enviosExternos = ExternStepHistory.objects.filter(stepHistory__in=allHistory)
+
+        for envio in enviosExternos:
+            historiaExterna = StepHistory.getHistoryFromServer(envio.urlDestino,
+                                                                 envio.codigoDocumentoExterno)
+            toReturn = unirDiccionarios(toReturn,historiaExterna)
+
         return JsonResponse(toReturn)
 
     @staticmethod
     def getLastState(document):
         return PrincipalStates.getLastState(document)
+
+    @staticmethod
+    def getHistoryFromServer(urlServidor, idDocumento):
+
+        params = urllib.parse.urlencode({'nombre': 'Victor',
+                                         'codigoUsuario': 'codUser'})
+        headers = {"Content-type": "application/x-www-form-urlencoded", "Accept": "text/plain"}
+        # conn = http.client.HTTPConnection("http://127.0.0.1:8000/")
+        conn = http.client.HTTPConnection(urlServidor, 8000)
+        conn.request("GET", "/historiers/" + str(idDocumento) + "/", params, headers)
+
+        response = conn.getresponse()
+        if (response.status == 200):
+            data = response.read()
+            print(urlServidor, 'data', data)
+            string = data.decode('utf-8')
+            print(urlServidor, 'string', string)
+            json_obj = json.loads(string)
+            print(urlServidor, 'json_obj', json_obj)
+            return json_obj
+        else:
+            print(urlServidor, 'returning null')
+            return {}
+
+

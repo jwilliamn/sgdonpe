@@ -1,10 +1,12 @@
 from sgdonpe.documents.models import DocumentFile,Document,DocumentViewer, DocumentoOficial
 from sgdonpe.authentication.models import InternalUser,ExternalUser
 from sgdonpe.remitos.models import Remito
-from sgdonpe.historiers.models import StepHistory,PrincipalStates
+from sgdonpe.historiers.models import StepHistory,PrincipalStates,ExternStepHistory
 import datetime
-import http.client, urllib
 from sgdonpe.mesadepartes.models import RegisteredInstitutions
+import http.client, urllib
+
+import json
 def handle_citizen_uploadfile(title, file, internalUser, nombre, apellido, dni):
     docFile = DocumentFile(file=file, fileName=title)
     docFile.save()
@@ -150,10 +152,34 @@ def handleEtxternalEnvio(originUser,idTargetUser,document,principalState,codigoS
         conn.request("POST", "/mesadepartes/uploadFile/", params, headers)
         response = conn.getresponse()
         print(response.status, response.reason)
-        data = response.read()
+        docPK = -1
+        if(response.status==200):
+            stepHistory = StepHistory(document=document,
+                                      currentPrincipalStateID=principalState,
+                                      user=originUser,
+                                      comentario=str(internalOriginUser) + ' envio a ' + str(idTargetUser))
+            stepHistory.save()
+
+            data = response.read()
+            string = data.decode('utf-8')
+            json_obj = json.loads(string)
+            print(json_obj,'json_obj')
+            try:
+                docPK = json_obj['docPK']
+                print('docPK:',docPK)
+                externalHistory = ExternStepHistory(stepHistory=stepHistory,
+                                                    urlDestino=possibleInstitutions[0].urlInstitution,
+                                                    codigoDocumentoExterno=docPK)
+                externalHistory.save()
+                print('external history saved')
+            except:
+                docPK = -1
+
         conn.close()
-        print(data)
-        return data
-    f = {}
-    f['errorEnvio']=True
-    return f
+        print(docPK)
+
+        return docPK
+
+    return -1
+
+
