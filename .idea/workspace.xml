@@ -20,11 +20,10 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sgdonpe/historiers/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="73" column="21" lean-forward="false" selection-start-line="73" selection-start-column="21" selection-end-line="73" selection-end-column="21" />
+            <state relative-caret-position="130">
+              <caret line="71" column="21" lean-forward="false" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="21" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
-                <element signature="e#382#1724#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -1083,11 +1082,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sgdonpe/historiers/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="73" column="21" lean-forward="false" selection-start-line="73" selection-start-column="21" selection-end-line="73" selection-end-column="21" />
+        <state relative-caret-position="130">
+          <caret line="71" column="21" lean-forward="false" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="21" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
-            <element signature="e#382#1724#0" expanded="false" />
           </folding>
         </state>
       </provider>

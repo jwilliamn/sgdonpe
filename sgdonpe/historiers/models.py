@@ -57,7 +57,7 @@ class ExternStepHistory(models.Model):
     codigoDocumentoExterno = models.IntegerField()
 
 def unirDiccionarios(A,B):
-    C = {**A, **B}
+    return {**A, **B}
 
 
 class StepHistory(models.Model):
