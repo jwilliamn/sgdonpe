@@ -21,5 +21,5 @@ urlpatterns = [
     url(r'^fileLoaded/$', views.handleLoadFile, name='fileloaded'),
     url(r'^buscar/$', views.searchDocument, name='searchDocument'),
     url(r'^buscarPorDNI/$', views.buscarPORDNI, name='buscarPORDNI'),
-
+    url(r'^getUsers/$', views.getUsersRegistered, name='getUsers'),
 ]

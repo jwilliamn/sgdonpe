@@ -1,5 +1,9 @@
+from django.db import models
 
-#from django.db import models
+class RegisteredInstitutions(models.Model):
+    institutionName = models.CharField(max_length=64)
+    urlInstitution = models.CharField(max_length=128)
+
 #from rest_framework import serializers
 # Create your models here.
 #class DataTransferBetWeenServers(models.Model):

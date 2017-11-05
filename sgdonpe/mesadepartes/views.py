@@ -6,7 +6,7 @@ from sgdonpe.historiers.models import StepHistory
 from sgdonpe.documents.models import Document
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-
+from sgdonpe.authentication.models import InternalUser
 from rest_framework import routers, serializers, viewsets
 # Create your views here.
 @csrf_exempt
@@ -18,6 +18,17 @@ def presentar(request):
         print('mesa de partes presentar isPGET')
         return presentarCiudadano(request)
 #metodo GET
+
+@csrf_exempt
+def getUsersRegistered(request):
+    if request.method == "GET":
+        allUsers = InternalUser.objects.all()
+        internalUsers = {iu.pk:str(iu) for iu in allUsers}
+        return JsonResponse(internalUsers)
+    else:
+        f = {}
+        f['youCantPostMe'] = True
+        return JsonResponse(f)
 
 def presentarCiudadano(request):
     form = UploadFileMesaDePartes()
