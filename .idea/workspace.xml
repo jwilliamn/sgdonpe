@@ -2,19 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8686b741-bfdc-4dcd-a0c6-0b4960747edd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sgdonpe/mesadepartes/templates/mesadepartes/documentSearcher.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sgdonpe/mesadepartes/templates/mesadepartes/documents.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sgdonpe/mesadepartes/templates/mesadepartes/enlace_document.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sgdonpe/static/img/favicon.ico" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sgdonpe/static/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sgdonpe/activities/UtilFunctions.py" afterPath="$PROJECT_DIR$/sgdonpe/activities/UtilFunctions.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sgdonpe/documents/templates/documents/documents.html" afterPath="$PROJECT_DIR$/sgdonpe/documents/templates/documents/documents.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sgdonpe/documents/templates/documents/partial_document.html" afterPath="$PROJECT_DIR$/sgdonpe/documents/templates/documents/partial_document.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sgdonpe/historiers/urls.py" afterPath="$PROJECT_DIR$/sgdonpe/historiers/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sgdonpe/historiers/views.py" afterPath="$PROJECT_DIR$/sgdonpe/historiers/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sgdonpe/mesadepartes/forms.py" afterPath="$PROJECT_DIR$/sgdonpe/mesadepartes/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sgdonpe/mesadepartes/urls.py" afterPath="$PROJECT_DIR$/sgdonpe/mesadepartes/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sgdonpe/mesadepartes/views.py" afterPath="$PROJECT_DIR$/sgdonpe/mesadepartes/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sgdonpe/urls.py" afterPath="$PROJECT_DIR$/sgdonpe/urls.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -44,21 +36,9 @@
       <file leaf-file-name="signup.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sgdonpe/authentication/templates/authentication/signup.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="31">
-              <caret line="5" column="35" lean-forward="false" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="35" />
+            <state relative-caret-position="90">
+              <caret line="5" column="33" lean-forward="false" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sgdonpe/mesadepartes/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
-              <caret line="45" column="79" lean-forward="false" selection-start-line="45" selection-start-column="66" selection-end-line="45" selection-end-column="79" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -85,20 +65,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UtilFunctions.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sgdonpe/activities/UtilFunctions.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="40">
-              <caret line="37" column="25" lean-forward="false" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="25" />
-              <folding>
-                <element signature="e#3084#3599#0" expanded="false" />
-                <element signature="e#3660#4181#0" expanded="false" />
-                <element signature="e#4276#5777#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sgdonpe/authentication/forms.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -119,7 +85,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sgdonpe/authentication/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="846">
@@ -131,14 +97,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sgdonpe/mesadepartes/urls.py">
+      <file leaf-file-name="documents.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sgdonpe/documents/templates/documents/documents.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="3" column="35" lean-forward="false" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="partial_document.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sgdonpe/documents/templates/documents/partial_document.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sgdonpe/static/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -172,7 +156,6 @@
         <option value="$PROJECT_DIR$/sgdonpe/authentication/views.py" />
         <option value="$PROJECT_DIR$/sgdonpe/historiers/forms.py" />
         <option value="$PROJECT_DIR$/sgdonpe/documents/views.py" />
-        <option value="$PROJECT_DIR$/sgdonpe/documents/templates/documents/documents.html" />
         <option value="$PROJECT_DIR$/sgdonpe/authentication/models.py" />
         <option value="$PROJECT_DIR$/sgdonpe/activities/views.py" />
         <option value="$PROJECT_DIR$/sgdonpe/activities/urls.py" />
@@ -181,7 +164,6 @@
         <option value="$PROJECT_DIR$/sgdonpe/historiers/models.py" />
         <option value="$PROJECT_DIR$/sgdonpe/mesadepartes/forms.py" />
         <option value="$PROJECT_DIR$/sgdonpe/mesadepartes/templates/mesadepartes/loadfile.html" />
-        <option value="$PROJECT_DIR$/sgdonpe/documents/templates/documents/partial_document.html" />
         <option value="$PROJECT_DIR$/sgdonpe/mesadepartes/templates/mesadepartes/documentSearcher.html" />
         <option value="$PROJECT_DIR$/sgdonpe/mesadepartes/templates/mesadepartes/documents.html" />
         <option value="$PROJECT_DIR$/sgdonpe/historiers/urls.py" />
@@ -191,6 +173,8 @@
         <option value="$PROJECT_DIR$/sgdonpe/mesadepartes/templates/mesadepartes/enlace_document.html" />
         <option value="$PROJECT_DIR$/sgdonpe/activities/UtilFunctions.py" />
         <option value="$PROJECT_DIR$/sgdonpe/mesadepartes/views.py" />
+        <option value="$PROJECT_DIR$/sgdonpe/documents/templates/documents/documents.html" />
+        <option value="$PROJECT_DIR$/sgdonpe/documents/templates/documents/partial_document.html" />
       </list>
     </option>
   </component>
@@ -239,6 +223,72 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="sgdonpe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sgdonpe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sgdonpe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sgdonpe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sgdonpe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sgdonpe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sgdonpe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sgdonpe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sgdonpe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sgdonpe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -440,11 +490,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/sgdonpe/static/img" />
+      <recent name="$PROJECT_DIR$/sgdonpe/static/css" />
       <recent name="$PROJECT_DIR$/sgdonpe/mesadepartes/templates/mesadepartes" />
       <recent name="$PROJECT_DIR$/sgdonpe" />
       <recent name="$PROJECT_DIR$/sgdonpe/historiers" />
-      <recent name="$PROJECT_DIR$/sgdonpe/documents" />
-      <recent name="$PROJECT_DIR$/sgdonpe/core" />
     </key>
   </component>
   <component name="RunManager">
@@ -889,22 +939,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sgdonpe/documents/templates/documents/documents.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sgdonpe/documents/templates/documents/partial_document.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-793">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sgdonpe/mesadepartes/templates/mesadepartes/documents.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -1029,14 +1063,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sgdonpe/authentication/templates/authentication/signup.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31">
-          <caret line="5" column="35" lean-forward="false" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sgdonpe/authentication/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="846">
@@ -1044,6 +1070,38 @@
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sgdonpe/static/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sgdonpe/authentication/templates/authentication/signup.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="33" lean-forward="false" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sgdonpe/documents/templates/documents/documents.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sgdonpe/documents/templates/documents/partial_document.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
