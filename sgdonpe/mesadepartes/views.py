@@ -8,7 +8,6 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from sgdonpe.authentication.models import InternalUser
 import json
-from rest_framework import routers, serializers, viewsets
 # Create your views here.
 @csrf_exempt
 def presentar(request):

@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8686b741-bfdc-4dcd-a0c6-0b4960747edd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sgdonpe/activities/UtilFunctions.py" afterPath="$PROJECT_DIR$/sgdonpe/activities/UtilFunctions.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sgdonpe/activities/views.py" afterPath="$PROJECT_DIR$/sgdonpe/activities/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sgdonpe/documents/models.py" afterPath="$PROJECT_DIR$/sgdonpe/documents/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sgdonpe/documents/templates/documents/partial_document.html" afterPath="$PROJECT_DIR$/sgdonpe/documents/templates/documents/partial_document.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sgdonpe/documents/views.py" afterPath="$PROJECT_DIR$/sgdonpe/documents/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sgdonpe/mesadepartes/forms.py" afterPath="$PROJECT_DIR$/sgdonpe/mesadepartes/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sgdonpe/mesadepartes/models.py" afterPath="$PROJECT_DIR$/sgdonpe/mesadepartes/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sgdonpe/urls.py" afterPath="$PROJECT_DIR$/sgdonpe/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scriptInitlizice" afterPath="$PROJECT_DIR$/scriptInitlizice" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sgdonpe/mesadepartes/views.py" afterPath="$PROJECT_DIR$/sgdonpe/mesadepartes/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -47,6 +40,30 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sgdonpe/historiers/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1440">
+              <caret line="80" column="39" lean-forward="false" selection-start-line="80" selection-start-column="39" selection-end-line="80" selection-end-column="39" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sgdonpe/mesadepartes/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="9" column="11" lean-forward="false" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="UtilFunctions.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sgdonpe/activities/UtilFunctions.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -70,7 +87,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sgdonpe/documents/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="18">
@@ -110,26 +127,6 @@
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sgdonpe/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="23" column="43" lean-forward="false" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sgdonpe/core/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -181,7 +178,6 @@
         <option value="$PROJECT_DIR$/sgdonpe/settings.py" />
         <option value="$PROJECT_DIR$/sgdonpe/documents/forms.py" />
         <option value="$PROJECT_DIR$/sgdonpe/mesadepartes/urls.py" />
-        <option value="$PROJECT_DIR$/sgdonpe/mesadepartes/views.py" />
         <option value="$PROJECT_DIR$/sgdonpe/mesadepartes/forms.py" />
         <option value="$PROJECT_DIR$/sgdonpe/urls.py" />
         <option value="$PROJECT_DIR$/sgdonpe/documents/views.py" />
@@ -190,6 +186,7 @@
         <option value="$PROJECT_DIR$/sgdonpe/activities/views.py" />
         <option value="$PROJECT_DIR$/sgdonpe/activities/UtilFunctions.py" />
         <option value="$PROJECT_DIR$/sgdonpe/documents/models.py" />
+        <option value="$PROJECT_DIR$/sgdonpe/mesadepartes/views.py" />
       </list>
     </option>
   </component>
@@ -871,22 +868,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sgdonpe/mesadepartes/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-162">
-          <caret line="9" column="11" lean-forward="false" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sgdonpe/historiers/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="80" column="39" lean-forward="false" selection-start-line="80" selection-start-column="39" selection-end-line="80" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sgdonpe/historiers/forms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -1026,6 +1007,26 @@
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="43" />
           <folding>
             <element signature="e#2577#2910#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sgdonpe/historiers/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1440">
+          <caret line="80" column="39" lean-forward="false" selection-start-line="80" selection-start-column="39" selection-end-line="80" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sgdonpe/mesadepartes/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="11" lean-forward="false" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
