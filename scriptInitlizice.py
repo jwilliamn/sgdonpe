@@ -1,6 +1,5 @@
 
 
-from sgdonpe.mesadepartes.models import RegisteredInstitutions
 from sgdonpe.historiers.models import PrincipalStates
 
 from django.contrib.auth.models import User
@@ -47,6 +46,7 @@ user.save()
 
 ri = RegisteredInstitutions(institutionName='local',urlInstitution='13.82.181.237',puerto=8000)
 ri.save()
+
 
 
 
