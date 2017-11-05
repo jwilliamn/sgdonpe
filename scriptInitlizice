@@ -1,5 +1,3 @@
-
-
 from sgdonpe.mesadepartes.models import RegisteredInstitutions
 from sgdonpe.historiers.models import PrincipalStates
 
