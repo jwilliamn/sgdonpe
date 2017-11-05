@@ -28,6 +28,43 @@ def handle_citizen_uploadfile(title, file, internalUser, nombre, apellido, dni):
     handleEnvioDocumento(mesaDePartes,internalUser.user,StepHistory.getLastState(document),document,True)
 
     return document.pk
+   # nombres = models.CharField(max_length=64)
+   # apellidos = models.CharField(max_length=64)
+   # codigoUsuario = models.CharField(max_length=8)
+   # codDependencia = models.CharField(max_length=8,default='ING')
+   # dependencia = models.CharField(max_length=256)
+   # urlUser = models.CharField(max_length=128)
+   # dni = models.CharField(max_length=12)
+def handle_sgd_uploadfile(title, file, internalUser, nombre, apellido, dni,
+                          codigoUsuario, codDependencia,dependencia,urlUser):
+    docFile = DocumentFile(file=file, fileName=title)
+    docFile.save()
+    print('docFileSaved')
+    documentoOficial = DocumentoOficial(fileID=docFile)
+    documentoOficial.save()
+    print('documentoOficial Saved')
+    mesaDePartes = InternalUser.getUserMesaDePartes()
+    print('mesaDePartes:',mesaDePartes)
+    document = Document(title=title,
+                        content=title,
+                        owner_user=mesaDePartes,
+                        docOficialID=documentoOficial,
+                        )
+    document.save()
+
+    externalUser = ExternalUser(nombres=nombre,
+                                apellidos=apellido,
+                                dni=dni,
+                                codigoUsuario=codigoUsuario,
+                                codDependencia=codDependencia,
+                                dependencia=dependencia,
+                                urlUser=urlUser)
+    externalUser.save()
+    handleEnvioDocumentoExterno(externalUser=externalUser,document=document)
+    handleEnvioDocumento(mesaDePartes,internalUser.user,StepHistory.getLastState(document),document,True)
+
+    return document.pk
+
 
 def handle_uploaded_file(titleFile, fileItself, authenticatedUser):
     print('loading file:',titleFile)

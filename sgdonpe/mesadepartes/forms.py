@@ -32,3 +32,6 @@ class UploadFileMesaDePartes(forms.Form):
 
         else:
             return render(request, 'core/cover.html')
+
+class DocumentSearcher(forms.Form):
+    dni = forms.CharField(max_length=64, empty_value="dni")

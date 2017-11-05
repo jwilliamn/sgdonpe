@@ -1,7 +1,7 @@
 from django.conf.urls import url
 
 from sgdonpe.mesadepartes import views
-
+from sgdonpe.historiers import urls
 urlpatterns = [
     # url(r'^$', documents_views.documents, name='documents'),
     # url(r'^post/$', views.post, name='post'),
@@ -19,5 +19,7 @@ urlpatterns = [
     #url(r'^sendFile/(?P<idDocument>\d+)/$', views.sendFile, name='sendFile'),
     url(r'^uploadFile/$', views.presentar, name='uploadFile'),
     url(r'^fileLoaded/$', views.handleLoadFile, name='fileloaded'),
+    url(r'^buscar/$', views.searchDocument, name='searchDocument'),
+    url(r'^buscarPorDNI/$', views.buscarPORDNI, name='buscarPORDNI'),
 
 ]

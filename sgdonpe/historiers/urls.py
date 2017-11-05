@@ -3,7 +3,7 @@ from django.conf.urls import url
 from sgdonpe.historiers import views as historier_views
 from sgdonpe.documents import views as documents_views
 urlpatterns = [
-    url(r'^$', documents_views.documents, name='documents'),
+    url(r'^$', historier_views.historierDocument, name='historierDocument'),
     #url(r'^post/$', views.post, name='post'),
     #url(r'^like/$', views.like, name='like'),
     #url(r'^comment/$', views.comment, name='comment'),
@@ -14,6 +14,7 @@ urlpatterns = [
     #url(r'^track_comments/$', views.track_comments, name='track_comments'),
     #url(r'^remove/$', views.remove, name='remove_feed'),
     url(r'^(?P<idDocument>\d+)/$', historier_views.documentHistory, name='history'),
+
     url(r'^addHistory/(?P<idDocument>\d+)/$', historier_views.addHistory, name='historyAdded'),
     url(r'^updatePrincipalState/(?P<idDocument>\d+)/$', historier_views.agregarActividad, name='historyAdded'),
     url(r'^sendFile/(?P<idDocument>\d+)/$', historier_views.addHistory, name='historyAdded'),

@@ -76,6 +76,12 @@ def agregarActividad(request,idDocument):
 
     return documentHistory(None, idDocument)
 
+def historierDocument(request):
+    if request.method=='POST':
+        print('isPost :)', request.POST)
+        return None
+    else:
+        return None
 #document = models.ForeignKey(Document)
    # currentPrincipalStateID = models.ForeignKey(PrincipalStates)
    # externUserID = models.IntegerField()
