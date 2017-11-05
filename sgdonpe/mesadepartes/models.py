@@ -3,6 +3,15 @@ from django.db import models
 class RegisteredInstitutions(models.Model):
     institutionName = models.CharField(max_length=64)
     urlInstitution = models.CharField(max_length=128)
+    puerto = models.IntegerField(default=8080)
+    def __str__(self):
+        return self.institutionName
+    @staticmethod
+    def getThisURL():
+        instituciones = RegisteredInstitutions.objects.filter(institutionName='local')
+        if len(instituciones)>0:
+            return instituciones[0].urlInstitution
+        return 'unknow'
 
 #from rest_framework import serializers
 # Create your models here.

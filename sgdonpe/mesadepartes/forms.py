@@ -2,6 +2,7 @@ from django import forms
 from sgdonpe.authentication.models import InternalUser
 from sgdonpe.documents.models import Document
 from django.shortcuts import render
+from sgdonpe.mesadepartes.models import RegisteredInstitutions
 class UploadFileMesaDePartes(forms.Form):
     internalUser = forms.ModelChoiceField(queryset=InternalUser.objects.all())
     nombre = forms.CharField(max_length=64,empty_value="nombre")
@@ -35,3 +36,6 @@ class UploadFileMesaDePartes(forms.Form):
 
 class DocumentSearcher(forms.Form):
     dni = forms.CharField(max_length=64, empty_value="dni")
+
+class SelectInstitutionToReference(forms.Form):
+    externalSGD = forms.ModelChoiceField(queryset=RegisteredInstitutions.objects.all())

@@ -66,6 +66,7 @@
                           {% csrf_token %}
                         <div class="input-field col s8">
                           <input type="hidden" name="documento" value="{{ document.pk }}">
+                          <input type="hidden" name="idUrl" value="{{ idUrl }}">
 
                           <select name="users" required="" id="id_users"  class="initialized">
                             {% for id, nombre in idUserNombreUser %}
@@ -98,6 +99,20 @@
         <div class="chip"> {{ tag }} </div>
         {% endfor %}
 
+      </div>
+
+      <div class="input-field col s4">
+        <div class="row">
+           <form role="form" method="post" action="{% url 'home' %}" >
+              {% csrf_token %}
+            <div class="input-field col s8">
+                  {{ comboInstitutions }}
+            </div>
+            <div class="input-field col s4">
+              <input class="f2_boton" value="√" type="submit">
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>

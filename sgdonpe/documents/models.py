@@ -57,12 +57,12 @@ class DocTags(models.Model):
 
 class Document(models.Model):
 
-    title = models.CharField(max_length=255, null=False, unique=True)
+    title = models.CharField(max_length=255, null=False)
     content = models.TextField(max_length=4000)
     owner_user = models.ForeignKey(User)
     create_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
-    docOficialID = models.ForeignKey(DocumentoOficial)
+    docOficialID = models.ForeignKey(DocumentoOficial, null=True)
     firstAnexoID = models.ForeignKey(Anexo, null=True)
     estado = models.CharField(max_length=16, null=False, default='NA')
 

@@ -15,21 +15,32 @@ def sendFile(request,idDocument):
 
             if 'users' in request.POST:
                 codUser = request.POST['users']
-                internalUserPossible = InternalUser.objects.filter(pk=codUser)
-                if len(internalUserPossible)>0:
-                    targetUser = internalUserPossible[0].user
-                    originUser = request.user
-                    allPossibleDocuments = Document.objects.filter(pk=idDocument)
-                    if len(allPossibleDocuments) > 0:
+                allPossibleDocuments = Document.objects.filter(pk=idDocument)
 
-                        # we should add targetUser as a viewer
-                        document = allPossibleDocuments[0]
-                        principalState = StepHistory.getLastState(document)
-                        UtilFunctions.handleEnvioDocumento(originUser=originUser,
-                                                           targetUser=targetUser,
+                if len(allPossibleDocuments) > 0:
+                    # we should add targetUser as a viewer
+                    document = allPossibleDocuments[0]
+                    principalState = StepHistory.getLastState(document)
+                    if 'idUrl' not in request.POST or request.POST['idUrl']=='local':
+                        internalUserPossible = InternalUser.objects.filter(pk=codUser)
+                        if len(internalUserPossible)>0:
+                            targetUser = internalUserPossible[0].user
+                            originUser = request.user
+
+                            UtilFunctions.handleEnvioDocumento(originUser=originUser,
+                                                               targetUser=targetUser,
+                                                               principalState=principalState,
+                                                               document=document)
+                    else:
+
+                        codigoServer = request.POST['idUrl']
+                        print('codigoServer: ', codigoServer)
+                        response = UtilFunctions.handleEtxternalEnvio(originUser=request.user,
+                                                           idTargetUser=codUser,
+                                                           document=document,
                                                            principalState=principalState,
-                                                           document=document)
-
+                                                           codigoServer=codigoServer)
+                        print('respuesta de UtilFunctions.handleEtxternalEnvio  ',response)
 
 
 

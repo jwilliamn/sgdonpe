@@ -3,7 +3,8 @@ from sgdonpe.authentication.models import InternalUser,ExternalUser
 from sgdonpe.remitos.models import Remito
 from sgdonpe.historiers.models import StepHistory,PrincipalStates
 import datetime
-
+import http.client, urllib
+from sgdonpe.mesadepartes.models import RegisteredInstitutions
 def handle_citizen_uploadfile(title, file, internalUser, nombre, apellido, dni):
     docFile = DocumentFile(file=file, fileName=title)
     docFile.save()
@@ -125,3 +126,34 @@ def handleEnvioDocumento(originUser,targetUser,principalState,document,withRemit
 
 
     print('envio registered')
+
+def handleEtxternalEnvio(originUser,idTargetUser,document,principalState,codigoServer):
+
+    internalOriginUser = InternalUser.findInternalUser(originUser)
+
+    possibleInstitutions = RegisteredInstitutions.objects.filter(pk=codigoServer)
+    if len(possibleInstitutions)>0:
+        params = urllib.parse.urlencode({'nombre': internalOriginUser.nombres,
+                                   'apellido': internalOriginUser.apellidos,
+                                   'dni': '4750',
+                                   'title': document.title,
+                                   'file': None,
+                                   'internalUser':str(idTargetUser),
+                                   'sgdUrl': RegisteredInstitutions.getThisURL(),
+                                   'depend': internalOriginUser.dependencia,
+                                   'codDependencia': internalOriginUser.codDependencia,
+                                   'codigoUsuario': internalOriginUser.codigoUsuario})
+        headers = {"Content-type": "application/x-www-form-urlencoded", "Accept": "text/plain"}
+        # conn = http.client.HTTPConnection("http://127.0.0.1:8000/")
+        conn = http.client.HTTPConnection(possibleInstitutions[0].urlInstitution,
+                                          possibleInstitutions[0].puerto)
+        conn.request("POST", "/mesadepartes/uploadFile/", params, headers)
+        response = conn.getresponse()
+        print(response.status, response.reason)
+        data = response.read()
+        conn.close()
+        print(data)
+        return data
+    f = {}
+    f['errorEnvio']=True
+    return f

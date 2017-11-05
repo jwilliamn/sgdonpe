@@ -26,7 +26,7 @@ urlpatterns = [
         name='login'),
     url(r'^logout', auth_views.logout, {'next_page': '/'}, name='logout'),
     url(r'^signup/$', bootcamp_auth_views.signup, name='signup'),
-    url(r'^documents/', include('sgdonpe.documents.urls')),
+    url(r'^documents/', include('sgdonpe.documents.urls',namespace='documents')),
     url(r'^historiers/', include('sgdonpe.historiers.urls',namespace='historiers')),
     #url(r'^remitos/', include('sgdonpe.remitos.urls')),
     url(r'^webservice/', include('sgdonpe.remitos.urls')),
