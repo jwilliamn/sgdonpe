@@ -57,7 +57,7 @@ class ExternStepHistory(models.Model):
     codigoDocumentoExterno = models.IntegerField()
 
 def unirDiccionarios(A,B):
-    return {**A, **B}
+    C = {**A, **B}
 
 
 class StepHistory(models.Model):
@@ -72,7 +72,6 @@ class StepHistory(models.Model):
     def getAllHistory(idDocument):
         allHistory = StepHistory.objects.filter(document=idDocument)
         toReturn = {}
-        toReturn['totalLog'] = len(allHistory)
         for indx in range(len(allHistory)):
             dic = {}
             dic['FechaHora'] = allHistory[indx].whenTime
